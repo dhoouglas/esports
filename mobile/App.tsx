@@ -6,9 +6,11 @@ import {
     Inter_700Bold,
     Inter_900Black
  } from '@expo-google-fonts/inter'
+
+import { Home } from './src/screens/Home';
+import { Loading } from './src/components/Loading';
 import { Background } from "./src/components/Background";
 
-import { Home } from './src/screens/Home'
 export default function App() {
   const [fontsLoaded] = useFonts ({
     Inter_400Regular,
@@ -24,7 +26,7 @@ export default function App() {
         translucent
       />
 
-      { fontsLoaded ? }
+      { fontsLoaded ? <Home /> : <Loading />}
 
     </Background>
   );
