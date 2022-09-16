@@ -1,10 +1,22 @@
-import express from "express";
+import express, { request } from "express";
 
 const app = express();
 
 // localhost:3333/ads
 
-app.get("/ads", (request, response) => {
+// HTTP methods / API RESTful (GET, POST, PUT, PATCH, DELETE) / HTTP Codes
+
+app.get('/games', (request, response) => {
+    return response.json([]);
+});
+
+app.post('/ads', (request, response) => {
+    return response.status(201).json([])
+});
+
+app.get("/games/:id/ads", (request, response) => {
+    // const gameId = request.params.id;
+
     return response.json([
         { id: 1, nome: "Anúncio 1" },
         { id: 2, nome: "Anúncio 2" },
@@ -12,6 +24,12 @@ app.get("/ads", (request, response) => {
         { id: 4, nome: "Anúncio 4" },
         { id: 5, nome: "Anúncio 5" },
     ])
+});
+
+app.get("/ads/:id/discord", (request, response) => {
+    // const adId = request.params.id;
+
+    return response.json([])
 });
 
 app.listen(3333);
